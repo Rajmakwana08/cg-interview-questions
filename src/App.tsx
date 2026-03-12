@@ -1440,22 +1440,669 @@ Boundary Fill: A filling algorithm that fills a region until a specified boundar
 `
     },
     {
-      id: 1,
-      question: "1. ",
-      answer: "",
-      codeExample: ``
+      id: 15,
+      question: "15. Explain Anti-Aliasing and its methods.",
+      answer: "📌 Theory question often asked.",
+      codeExample: `
+What is Anti-Aliasing?
+
+When we draw a line or curve on a computer screen, the edges look zig-zag or stair-shaped because the 
+screen uses square pixels.
+
+Example (jagged edge):
+
+#####
+    #####
+         #####
+
+This stair shape is called aliasing.
+Anti-Aliasing is a method used to make edges look smooth.
+
+
+Example (smoother edge):
+
+######
+  ######
+    ######
+
+The computer changes pixel brightness (color intensity) near the edges so the line looks smoother.
+
+
+
+Methods of Anti-Aliasing
+
+1. High Resolution Display
+
+Idea
+
+Use more pixels on the screen.
+When pixels are very small, edges look smoother.
+
+Example:
+
+Low resolution
+
+#  #  #
+ #  # 
+
+High resolution
+
+########
+ #######
+  ######
+
+Simple Meaning
+More pixels → smoother image.
+
+
+
+2. Post Filtering (Supersampling)
+
+Idea
+
+Each pixel is divided into smaller parts (sub-pixels).
+
+Example:
+
+Pixel
+
+|----|
+|____|
+
+Divide into 4 parts:
+
+|--|--|
+|__|__|
+
+The computer checks color in each small part and then averages them.
+
+Result → smoother edges.
+
+
+
+3. Pre Filtering
+Idea
+
+The computer checks how much of a pixel is covered by the object.
+
+Example:
+
+Pixel coverage
+
+[████ ] 80% covered
+
+The pixel color becomes 80% bright.
+If only 20% is covered → lighter color.
+This creates a smooth edge effect.
+
+
+
+4. Pixel Phasing
+
+Idea
+
+The computer slightly changes pixel brightness near edges.
+
+Example:
+
+Dark pixel
+Medium pixel
+Light pixel
+
+### 
+ ## 
+  #
+
+By changing brightness, the edge looks smoother.
+
+
+Very Simple Summary
+
+| Method          | Idea                                |
+| --------------- | ----------------------------------- |
+| High Resolution | Use more pixels                     |
+| Supersampling   | Divide pixels into small parts      |
+| Pre Filtering   | Calculate how much pixel is covered |
+| Pixel Phasing   | Adjust pixel brightness             |
+
+
+One Line Definition (for exam)
+
+Anti-Aliasing is a technique used to remove jagged edges in computer graphics and produce smooth 
+images.
+      
+      `
     },
     {
-      id: 1,
-      question: "1. ",
-      answer: "",
-      codeExample: ``
+      id: 16,
+      question: "16. Explain 2D Transformations.",
+      answer: "📌 Write definition + matrix",
+      codeExample: `
+⭐ VERY IMPORTANT TRANSFORMATION QUESTIONS
+These are almost guaranteed.
+
+What is 2D Transformation?
+
+In 2D Transformation, we change the position, size, or shape of an object in 2D space (x, y plane).
+
+Example:
+
+Move an object
+Rotate an object
+Increase size
+Flip shape
+
+All these are transformations.
+
+
+Types of 2D Transformations
+
+We will learn 5 types:
+
+1. Translation
+2. Rotation
+3. Scaling
+4. Reflection
+5. Shearing
+      
+
+
+-----------------------------------------
+TRANSLATION IN 2D TRANSFORMATION
+-----------------------------------------
+
+Definition:
+Translation moves an object from one position to another 
+without changing its size, shape, or orientation.
+
+If a point P(x, y) is translated by:
+Tx = translation in x-direction
+Ty = translation in y-direction
+
+New coordinates become:
+
+x' = x + Tx
+y' = y + Ty
+
+
+-----------------------------------------
+HOMOGENEOUS COORDINATES
+-----------------------------------------
+
+To use matrix multiplication in computer graphics,
+we convert the point (x, y) into homogeneous form:
+
+P = (x, y, 1)
+
+
+-----------------------------------------
+2D TRANSLATION MATRIX
+-----------------------------------------
+
+T = | 1   0   Tx |
+    | 0   1   Ty |
+    | 0   0   1  |
+
+
+-----------------------------------------
+MATRIX MULTIPLICATION
+-----------------------------------------
+
+| 1  0  Tx |     | x |     | x' |
+| 0  1  Ty |  ×  | y |  =  | y' |
+| 0  0  1  |     | 1 |     | 1  |
+
+
+After multiplication:
+
+x' = x + Tx
+y' = y + Ty
+
+
+-----------------------------------------
+EXAMPLE
+-----------------------------------------
+
+Original Point:
+P(2, 3)
+
+Translation values:
+Tx = 4
+Ty = 2
+
+Translation Matrix:
+
+| 1  0  4 |
+| 0  1  2 |
+| 0  0  1 |
+
+Point Matrix:
+
+| 2 |
+| 3 |
+| 1 |
+
+Multiplication:
+
+x' = (1*2) + (0*3) + (4*1) = 6
+y' = (0*2) + (1*3) + (2*1) = 5
+
+New Point:
+P'(6, 5)
+
+
+-----------------------------------------
+KEY POINTS
+-----------------------------------------
+
+1. Translation moves an object from one location to another.
+2. Shape and size do NOT change.
+3. Translation uses Tx and Ty values.
+4. Homogeneous coordinates (x, y, 1) are used.
+5. Translation matrix is 3×3.
+
+
+------------------------------------------------------------------------------------
+
+
+-----------------------------------------
+ROTATION IN 2D TRANSFORMATION
+-----------------------------------------
+
+Definition:
+Rotation means turning an object around a fixed point
+(usually the origin) by a certain angle.
+
+Rotation changes the orientation of the object
+but the shape and size remain the same.
+
+Angle of rotation = θ (theta)
+
+Positive angle  → Counter-clockwise rotation
+Negative angle  → Clockwise rotation
+
+
+-----------------------------------------
+ROTATION FORMULA
+-----------------------------------------
+
+If a point P(x, y) is rotated by angle θ about the origin,
+the new coordinates become:
+
+x' = x cosθ − y sinθ
+y' = x sinθ + y cosθ
+
+
+-----------------------------------------
+2D ROTATION MATRIX
+-----------------------------------------
+
+R = | cosθ   -sinθ |
+    | sinθ    cosθ |
+
+
+-----------------------------------------
+MATRIX MULTIPLICATION
+-----------------------------------------
+
+| cosθ  -sinθ |     | x |     | x' |
+| sinθ   cosθ |  ×  | y |  =  | y' |
+
+
+After multiplication:
+
+x' = x cosθ − y sinθ
+y' = x sinθ + y cosθ
+
+
+-----------------------------------------
+EXAMPLE
+-----------------------------------------
+
+Rotate point P(1, 0) by 90° counter-clockwise.
+
+Values:
+cos90° = 0
+sin90° = 1
+
+Rotation Matrix:
+
+| 0  -1 |
+| 1   0 |
+
+Point Matrix:
+
+| 1 |
+| 0 |
+
+Multiplication:
+
+x' = (0*1) + (-1*0) = 0
+y' = (1*1) + (0*0) = 1
+
+New Point:
+P'(0, 1)
+
+
+-----------------------------------------
+KEY POINTS
+-----------------------------------------
+
+1. Rotation turns an object around a fixed point.
+2. Shape and size do NOT change.
+3. Angle θ determines how much the object rotates.
+4. Rotation matrix uses cosθ and sinθ.
+5. Counter-clockwise rotation is considered positive.
+
+
+------------------------------------------------------------------------------------
+
+
+-----------------------------------------
+SCALING IN 2D TRANSFORMATION
+-----------------------------------------
+
+Definition:
+Scaling changes the size of an object in computer graphics.
+
+It can either enlarge or shrink the object.
+
+Sx = scaling factor in x-direction
+Sy = scaling factor in y-direction
+
+
+-----------------------------------------
+SCALING FORMULA
+-----------------------------------------
+
+x' = Sx * x
+y' = Sy * y
+
+
+-----------------------------------------
+2D SCALING MATRIX
+-----------------------------------------
+
+S = | Sx   0 |
+    | 0    Sy |
+
+
+-----------------------------------------
+MATRIX MULTIPLICATION
+-----------------------------------------
+
+| Sx  0 |     | x |     | x' |
+| 0  Sy |  ×  | y |  =  | y' |
+
+
+After multiplication:
+
+x' = Sx * x
+y' = Sy * y
+
+
+-----------------------------------------
+EXAMPLE
+-----------------------------------------
+
+Original Point:
+P(2, 3)
+
+Scaling factors:
+Sx = 2
+Sy = 3
+
+Scaling Matrix:
+
+| 2  0 |
+| 0  3 |
+
+Point Matrix:
+
+| 2 |
+| 3 |
+
+Multiplication:
+
+x' = 2 * 2 = 4
+y' = 3 * 3 = 9
+
+New Point:
+P'(4, 9)
+
+
+-----------------------------------------
+KEY POINTS
+-----------------------------------------
+
+1. Scaling changes the size of an object.
+2. Shape remains the same.
+3. Uses scaling factors Sx and Sy.
+4. If Sx = Sy → Uniform scaling.
+5. If Sx ≠ Sy → Differential scaling.
+
+
+------------------------------------------------------------------------------------
+
+
+-----------------------------------------
+REFLECTION IN 2D TRANSFORMATION
+-----------------------------------------
+
+Definition:
+Reflection creates a mirror image of an object
+with respect to a line or axis.
+
+The size and shape of the object remain the same,
+but the orientation is reversed.
+
+
+-----------------------------------------
+REFLECTION ABOUT X-AXIS
+-----------------------------------------
+
+Formula:
+
+x' = x
+y' = -y
+
+Matrix:
+
+| 1   0 |
+| 0  -1 |
+
+Example:
+(3,4) → (3,-4)
+
+
+-----------------------------------------
+REFLECTION ABOUT Y-AXIS
+-----------------------------------------
+
+Formula:
+
+x' = -x
+y' = y
+
+Matrix:
+
+| -1   0 |
+|  0   1 |
+
+Example:
+(3,4) → (-3,4)
+
+
+-----------------------------------------
+REFLECTION ABOUT ORIGIN
+-----------------------------------------
+
+Formula:
+
+x' = -x
+y' = -y
+
+Matrix:
+
+| -1   0 |
+|  0  -1 |
+
+Example:
+(3,4) → (-3,-4)
+
+
+-----------------------------------------
+KEY POINTS
+-----------------------------------------
+
+1. Reflection produces a mirror image.
+2. Shape and size do not change.
+3. Only the direction/orientation changes.
+4. Reflection can occur about X-axis, Y-axis,
+   origin, or line y = x.
+
+
+------------------------------------------------------------------------------------
+
+
+-----------------------------------------
+SHEARING IN 2D TRANSFORMATION
+-----------------------------------------
+
+Definition:
+Shearing is a transformation that shifts one part
+of an object in a particular direction while
+keeping the other part fixed.
+
+It changes the shape of the object but the area
+remains the same.
+
+Shearing makes objects look slanted or tilted.
+
+Shx = shear factor in x-direction
+Shy = shear factor in y-direction
+
+
+-----------------------------------------
+X-SHEARING FORMULA
+-----------------------------------------
+
+x' = x + Shx * y
+y' = y
+
+
+-----------------------------------------
+X-SHEARING MATRIX
+-----------------------------------------
+
+Shx = | 1   Shx |
+      | 0    1  |
+
+
+-----------------------------------------
+MATRIX MULTIPLICATION
+-----------------------------------------
+
+| 1  Shx |     | x |     | x' |
+| 0   1  |  ×  | y |  =  | y' |
+
+
+After multiplication:
+
+x' = x + Shx * y
+y' = y
+
+
+-----------------------------------------
+Y-SHEARING FORMULA
+-----------------------------------------
+
+x' = x
+y' = y + Shy * x
+
+
+-----------------------------------------
+Y-SHEARING MATRIX
+-----------------------------------------
+
+Shy = | 1   0 |
+      | Shy 1 |
+
+
+-----------------------------------------
+MATRIX MULTIPLICATION
+-----------------------------------------
+
+| 1   0 |     | x |     | x' |
+| Shy 1 |  ×  | y |  =  | y' |
+
+
+After multiplication:
+
+x' = x
+y' = y + Shy * x
+
+
+-----------------------------------------
+EXAMPLE
+-----------------------------------------
+
+Original Point:
+P(2,3)
+
+Shear factor:
+Shx = 2
+
+X-Shearing Matrix:
+
+| 1  2 |
+| 0  1 |
+
+Point Matrix:
+
+| 2 |
+| 3 |
+
+Multiplication:
+
+x' = 2 + (2*3) = 8
+y' = 3
+
+New Point:
+P'(8,3)
+
+
+-----------------------------------------
+KEY POINTS
+-----------------------------------------
+
+1. Shearing shifts part of the object.
+2. Shape changes but area remains the same.
+3. There are two types: X-shear and Y-shear.
+4. X-shear shifts points horizontally.
+5. Y-shear shifts points vertically.
+
+
+------------------------------------------------------------------------------------
+
+
+
+      `
     },
     {
-      id: 1,
-      question: "1. ",
+      id: 17,
+      question: "17. SHORT QUESTIONS",
       answer: "",
-      codeExample: ``
+      codeExample: `
+Just read these:
+
+Regular vs Irregular polygon
+Convex vs Concave polygon
+Inside Outside Test (Odd-Parity rule)
+Homogeneous coordinate system
+Character generation methods
+      
+      `
     },
     {
       id: 1,
