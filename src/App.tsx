@@ -567,263 +567,251 @@ nearest pixel to form a circle using 8-way symmetry.
       question: "5. Explain Midpoint Ellipse Algorithm (steps + decision parameter).",
       answer: "📌 10–12 mark long answer possibility",
       codeExample: `
-⭐ Midpoint Ellipse Algorithm
-✅ Simple Meaning
+-----------------------------------------
+MIDPOINT ELLIPSE ALGORITHM
+-----------------------------------------
 
-The Midpoint Ellipse Algorithm is used to draw an ellipse using an incremental method.
+-----------------------------------------
+SIMPLE MEANING
+-----------------------------------------
 
-It is similar to the midpoint circle algorithm but works with the ellipse equation:
+The Midpoint Ellipse Algorithm is used to draw
+an ellipse using an incremental method.
 
-      x2        y2
-      _    +    _   =  1
-      rx2      ry2
-      
+It is based on the ellipse equation:
 
-It uses a decision parameter to decide the next pixel position.
-The ellipse uses 4-way symmetry (not 8 like circle).
-      
+   x²        y²
+  ----  +  ----  = 1
+  rx²       ry²
+
+It uses a decision parameter to choose the
+next pixel position.
+
+Ellipse uses 4-way symmetry.
 
 
-⭐ Basic Idea
+-----------------------------------------
+BASIC IDEA
+-----------------------------------------
 
-The first quadrant of ellipse is divided into two regions:
+Ellipse is divided into two regions:
 
-🔹 Region 1
-
+Region 1:
 Slope > -1
-Move mainly in x direction
+Move in x-direction
 
-🔹 Region 2
-
+Region 2:
 Slope < -1
-Move mainly in y direction
+Move in y-direction
 
-After calculating points in first quadrant, reflect them in other 3 quadrants.
+After computing first quadrant,
+reflect points to other quadrants.
 
 
-
-⭐ Initial Setup
+-----------------------------------------
+INITIAL SETUP
+-----------------------------------------
 
 Given:
-      rz = x-radius
-      ry = y-radius
-      Center = (x_c , y_c)
-      
+rx = x-radius
+ry = y-radius
+Center = (xc , yc)
+
 Start point:
-      (x0​,y0​)=(0,ry​)
+(x0 , y0) = (0 , ry)
 
 
-
-⭐ Decision Parameter – Region 1
-Initial decision parameter:
-
-      P1 0​​= ry2​ − rx2 ​ry ​+ 1 ​rx2​
-                           -
-                           4
-                     
-
-🔹 Region 1 Steps
-While:
-      2ry2​x<2rx2​y
-
-if P1​<0
-
-👉 Midpoint inside ellipse
-Choose (x+1, y)
-
-      P1(k+1)​=P1k​+2ry2​x+ry2​
-
-
-
-if P1​≥0
-
-👉 Midpoint outside ellipse
-Choose (x+1, y-1)
-
-      P1(k+1)​=P1k​+2ry2​x−2rx2​y+ry2​
-
-
-
-
-⭐ Decision Parameter – Region 2
+-----------------------------------------
+REGION 1 DECISION PARAMETER
+-----------------------------------------
 
 Initial value:
-              
-    P2 0 = ry2 ​(x+1/2​)^2 + rx2 ​(y−1)^2 − rx2 ​ry2​
 
+P1(0) = ry² − rx²·ry + (1/4)rx²
 
 
+-----------------------------------------
+REGION 1 CONDITION
+-----------------------------------------
 
-🔹 Region 2 Steps
+While:
+2ry²x < 2rx²y
 
-While y ≥ 0:
 
+Case 1: P1 < 0
+→ Midpoint inside
+→ Next point: (x+1 , y)
 
-if P2​>0
+P1(k+1) = P1k + 2ry²x + ry²
 
-👉 Choose (x, y-1)
 
-  P2(k+1)​=P2k​−2rx2​y+rx2​
+Case 2: P1 ≥ 0
+→ Midpoint outside
+→ Next point: (x+1 , y−1)
 
+P1(k+1) = P1k + 2ry²x − 2rx²y + ry²
 
-if P2​≤0
 
-👉 Choose (x+1, y-1)
+-----------------------------------------
+REGION 2 DECISION PARAMETER
+-----------------------------------------
 
-  P2(k+1)​=P2k​+2ry2​x−2rx2​y+rx2​
+Initial value:
 
+P2(0) = ry²(x + 1/2)² + rx²(y − 1)² − rx²ry²
 
 
-⭐ Complete Steps of Algorithm
+-----------------------------------------
+REGION 2 CONDITION
+-----------------------------------------
 
-1️⃣ Input rx,ry and center (x_c , y_c)
-2️⃣ Start at (0 , r_y)
-3️⃣ Calculate initial P₁
-4️⃣ Process Region 1
-5️⃣ Calculate initial P₂
-6️⃣ Process Region 2
-7️⃣ Apply 4-way symmetry
+While y ≥ 0
 
 
+Case 1: P2 > 0
+→ Next point: (x , y−1)
 
-⭐ 4-Way Symmetry
+P2(k+1) = P2k − 2rx²y + rx²
 
-If calculated point is (x, y)
 
+Case 2: P2 ≤ 0
+→ Next point: (x+1 , y−1)
 
-Other points are:
+P2(k+1) = P2k + 2ry²x − 2rx²y + rx²
 
-(x,y)
-(−x,y)
-(x,−y)
-(−x,−y)
 
-Add center coordinates:
+-----------------------------------------
+COMPLETE ALGORITHM STEPS
+-----------------------------------------
 
-x=x+xc​
-y=y+yc​
+1. Input rx, ry and center (xc , yc)
+2. Initialize x = 0, y = ry
+3. Compute P1
+4. Process Region 1
+5. Compute P2
+6. Process Region 2
+7. Apply 4-way symmetry
 
 
+-----------------------------------------
+4-WAY SYMMETRY
+-----------------------------------------
 
-⭐ Advantages
+For point (x , y):
 
-✔ Efficient incremental method
-✔ Uses decision parameter
-✔ Suitable for raster display
-✔ No floating slope calculation
+(x , y)
+(-x , y)
+(x , -y)
+(-x , -y)
 
-⭐ Disadvantages
-
-❌ Slight pixel approximation
-❌ More complex than circle algorithm
-
-⭐ Short Exam Definition
-
-Midpoint Ellipse Algorithm is an incremental scan conversion algorithm that uses a decision parameter to 
-generate ellipse points in two regions using 4-way symmetry.
-
-
-
-----------------------------------------------------------------------
-
-example:
-
-⭐ Midpoint Ellipse Algorithm – Numerical Example with Tables
-🔢 Given:
-
-rx = 8
-ry = 6
-Center = (0,0)
-
-
-rx² = 64
-ry² = 36
-
-
-⭐ Initial Values
-x = 0
-y = 6
-
-Initial Decision Parameter (Region 1)
-
-P1=ry2−rx2⋅ry+(1/4)rx2
-P1=36−(64×6)+16
-P1=36−384+16
-P1=−332
-
-
-⭐ Region 1 Table
-
-Condition:
-
-2ry2x<2rx2y
-
-
-| Iteration | x | y | P1   | Decision          |
-| --------- | - | - | ---- | ----------------- |
-| 0         | 0 | 6 | -332 | P1<0 → (x+1, y)   |
-| 1         | 1 | 6 | -224 | P1<0 → (x+1, y)   |
-| 2         | 2 | 6 | -44  | P1<0 → (x+1, y)   |
-| 3         | 3 | 6 | 208  | P1≥0 → (x+1, y-1) |
-| 4         | 4 | 5 | -108 | P1<0 → (x+1, y)   |
-| 5         | 5 | 5 | 288  | P1≥0 → (x+1, y-1) |
-| 6         | 6 | 4 | 148  | P1≥0 → (x+1, y-1) |
-| 7         | 7 | 3 | 348  | Exit Region 1     |
-
-
-
-
-⭐ Region 2 Initial Decision Parameter
-
-Using last point from Region 1:
-
-x = 7
-y = 3
-
-
-P2=ry2(x+1/2)2+rx2(y−1)2−rx2ry2
-P2=36(7.5)2+64(2)2−2304
-P2=2025+256−2304
-P2=−23
-
-
-⭐ Region 2 Table
-
-Condition:
-
-y>0
-
-| Iteration | x | y | P2   | Decision          |
-| --------- | - | - | ---- | ----------------- |
-| 0         | 7 | 3 | -23  | P2≤0 → (x+1, y-1) |
-| 1         | 8 | 2 | 233  | P2>0 → (x, y-1)   |
-| 2         | 8 | 1 | 169  | P2>0 → (x, y-1)   |
-| 3         | 8 | 0 | Stop | End               |
-
-
-
-⭐ 4-Way Symmetry (Very Important for Exam)
-
-For each calculated point (x, y):
-
-| Symmetry Points |
-| --------------- |
-| ( x,  y)        |
-| (-x,  y)        |
-| ( x, -y)        |
-| (-x, -y)        |
-
-
-If center is (xc, yc):
+Add center:
 
 x = x + xc
 y = y + yc
 
 
-⭐ Final Output Points (First Quadrant)
+-----------------------------------------
+ADVANTAGES
+-----------------------------------------
+
+✔ Efficient incremental method
+✔ No floating point calculation
+✔ Fast for raster display
+
+
+-----------------------------------------
+DISADVANTAGES
+-----------------------------------------
+
+❌ Slight approximation error
+❌ More complex than circle algorithm
+
+
+-----------------------------------------
+SHORT EXAM DEFINITION
+-----------------------------------------
+
+Midpoint Ellipse Algorithm is an incremental
+scan conversion algorithm that uses decision
+parameters to generate ellipse points in two
+regions using 4-way symmetry.
+
+
+
+
+-----------------------------------------
+NUMERICAL EXAMPLE
+-----------------------------------------
+
+Given:
+rx = 8
+ry = 6
+Center = (0,0)
+
+rx² = 64
+ry² = 36
+
+
+-----------------------------------------
+INITIAL VALUES
+-----------------------------------------
+
+x = 0
+y = 6
+
+P1 = ry² − rx²·ry + (1/4)rx²
+P1 = 36 − (64×6) + 16
+P1 = -332
+
+
+-----------------------------------------
+REGION 1 TABLE
+-----------------------------------------
+
+Condition:
+2ry²x < 2rx²y
+
+| Iter | x | y | P1   | Decision          |
+|------|---|---|------|-------------------|
+| 0    | 0 | 6 | -332 | P1<0 → (x+1,y)    |
+| 1    | 1 | 6 | -224 | P1<0 → (x+1,y)    |
+| 2    | 2 | 6 | -44  | P1<0 → (x+1,y)    |
+| 3    | 3 | 6 | 208  | P1≥0 → (x+1,y-1)  |
+| 4    | 4 | 5 | -108 | P1<0 → (x+1,y)    |
+| 5    | 5 | 5 | 288  | P1≥0 → (x+1,y-1)  |
+| 6    | 6 | 4 | 148  | P1≥0 → (x+1,y-1)  |
+| 7    | 7 | 3 | Exit Region 1            |
+
+
+-----------------------------------------
+REGION 2 INITIAL VALUE
+-----------------------------------------
+
+x = 7
+y = 3
+
+P2 = 36(7.5)² + 64(2)² − 2304
+P2 = 2025 + 256 − 2304
+P2 = -23
+
+
+-----------------------------------------
+REGION 2 TABLE
+-----------------------------------------
+
+| Iter | x | y | P2   | Decision          |
+|------|---|---|------|-------------------|
+| 0    | 7 | 3 | -23  | P2≤0 → (x+1,y-1)  |
+| 1    | 8 | 2 | 233  | P2>0 → (x,y-1)    |
+| 2    | 8 | 1 | 169  | P2>0 → (x,y-1)    |
+| 3    | 8 | 0 | Stop | End               |
+
+
+-----------------------------------------
+FINAL POINTS (FIRST QUADRANT)
+-----------------------------------------
 
 Region 1:
-
 (0,6)
 (1,6)
 (2,6)
@@ -833,22 +821,22 @@ Region 1:
 (6,4)
 (7,3)
 
-
 Region 2:
-
 (8,2)
 (8,1)
 (8,0)
 
 
-⭐ Exam Tip ⭐
+-----------------------------------------
+EXAM TIPS
+-----------------------------------------
 
-✔ Draw neat table
-✔ Show at least 4–5 iterations
-✔ Write symmetry formula
-✔ Mention 2 regions clearly
+✔ Draw table neatly
+✔ Show iterations
+✔ Mention both regions
+✔ Write symmetry clearly
+✔ Final points must be shown
 
-You will get full marks 🔥
 
 `
     },
@@ -857,6 +845,125 @@ You will get full marks 🔥
       question: "6. short questions",
       answer: "",
       codeExample: `
+Elips for your exam :
+
+-----------------------------------------
+MIDPOINT ELLIPSE ALGORITHM (WITH EXAMPLE)
+-----------------------------------------
+
+Definition:
+Midpoint Ellipse Algorithm is used to draw an ellipse
+using decision parameters and 4-way symmetry.
+
+
+-----------------------------------------
+BASIC IDEA
+-----------------------------------------
+
+Ellipse is divided into 2 regions:
+
+Region 1 → slope > -1 (move in x)
+Region 2 → slope < -1 (move in y)
+
+
+-----------------------------------------
+INITIAL VALUES
+-----------------------------------------
+
+x = 0
+y = ry
+
+P1 = ry² − rx²·ry + (1/4)rx²
+
+
+-----------------------------------------
+REGION 1
+-----------------------------------------
+
+Condition:
+2ry²x < 2rx²y
+
+If P1 < 0 → (x+1 , y)
+If P1 ≥ 0 → (x+1 , y−1)
+
+
+-----------------------------------------
+REGION 2
+-----------------------------------------
+
+P2 = ry²(x+1/2)² + rx²(y−1)² − rx²ry²
+
+If P2 > 0 → (x , y−1)
+If P2 ≤ 0 → (x+1 , y−1)
+
+
+-----------------------------------------
+SYMMETRY
+-----------------------------------------
+
+(x,y), (-x,y), (x,-y), (-x,-y)
+
+
+-----------------------------------------
+EXAMPLE
+-----------------------------------------
+
+Given:
+rx = 4
+ry = 3
+Center = (0,0)
+
+rx² = 16
+ry² = 9
+
+Initial point:
+x = 0
+y = 3
+
+P1 = ry² − rx²·ry + (1/4)rx²
+P1 = 9 − (16×3) + 4
+P1 = -35
+
+
+Now apply Region 1 (only 2–3 steps enough):
+
+Step 1:
+P1 < 0 → (1 , 3)
+
+Step 2:
+P1 < 0 → (2 , 3)
+
+Step 3:
+P1 ≥ 0 → (3 , 2)
+
+
+Region 2 (only 1–2 steps):
+
+Next:
+(4 , 1)
+(4 , 0)
+
+
+-----------------------------------------
+FINAL POINTS (FIRST QUADRANT)
+-----------------------------------------
+
+(0,3), (1,3), (2,3), (3,2), (4,1), (4,0)
+
+
+-----------------------------------------
+DIAGRAM
+-----------------------------------------
+
+      *
+   *     *
+ *         *
+   *     *
+      *
+
+(draw simple ellipse)
+
+
 🧠 2 MARK / MCQ – JUST READ
 
 Pixel = Smallest screen element
@@ -3484,8 +3591,8 @@ C = next vertex
       `
     },
     {
-      id: 27,
-      question: "27. 2–3 MARK QUESTIONS",
+      id: 28,
+      question: "28. 2–3 MARK QUESTIONS",
       answer: "",
       codeExample: `
 -----------------------------------------
