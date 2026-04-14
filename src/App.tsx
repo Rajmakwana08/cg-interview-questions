@@ -4161,6 +4161,1310 @@ POINTS
       codeExample: ``
     },
     {
+      id: 31,
+      question: "31. Explain Illumination Model",
+      answer: "📌 Basic + very important theory",
+      codeExample: `
+⭐ Illumination Model  
+
+🔹 Definition  
+The Illumination Model is used to calculate how light falls on objects and how they appear on the screen.  
+
+👉 In simple words:  
+It tells how bright or dark a surface looks.  
+
+
+🎯 Why we need it?  
+
+Without illumination:  
+Object → flat (no brightness)  
+
+With illumination:  
+Object → looks realistic (light, shadow, shine)  
+
+
+
+⭐ Types of Light Sources  
+
+1️⃣ Point Light Source  
+- Light comes from one point  
+- Example: Bulb 💡  
+
+2️⃣ Directional Light Source  
+- Light rays are parallel  
+- Example: Sunlight ☀️  
+
+3️⃣ Spot Light Source  
+- Light in one direction (cone shape)  
+- Example: Torch 🔦  
+
+
+
+🎯 Think of ONE Example (Very Important)  
+
+Imagine a ball under a light bulb 💡  
+
+        💡  
+         |  
+        ( )  
+
+
+Now we see 3 types of light on that ball 👇  
+
+
+
+⭐ 1️⃣ Ambient Reflection (Most Easy)  
+
+🔹 Real Life Idea  
+Even if light is not directly on the ball,  
+you can still see it  
+
+👉 Because light is present everywhere  
+
+
+🔹 Simple Meaning  
+- Whole object is slightly visible  
+- Same brightness everywhere  
+
+
+🔹 Example  
+(   )  
+
+👉 Entire ball is light grey  
+
+
+
+⭐ 2️⃣ Diffuse Reflection  
+
+🔹 Real Life Idea  
+Light falls on the ball  
+
+👉 Side facing light becomes brighter  
+
+
+🔹 Simple Meaning  
+- Depends on angle of light  
+- Not shiny  
+- Like wall / paper  
+
+
+🔹 Example  
+
+   💡  
+    \  
+    (◐)  
+
+Left side → bright  
+Right side → dark  
+
+
+
+⭐ 3️⃣ Specular Reflection ⭐ (IMPORTANT)  
+
+🔹 Real Life Idea  
+You see a small shiny white spot on the ball  
+
+
+🔹 Simple Meaning  
+- Very bright spot  
+- Seen in mirror / metal  
+
+
+🔹 Example  
+
+   💡  
+    \  
+    (◐•)  
+
+👉 • = shiny spot  
+
+
+
+🔥 FINAL UNDERSTANDING (VERY IMPORTANT)  
+
+Type        What you see on object  
+-----------------------------------------  
+Ambient     Full object slightly visible  
+Diffuse     Light side bright, other side dark  
+Specular    Small shiny spot  
+
+
+
+💡 Super Easy Memory Trick  
+
+Ambient  → See object  
+Diffuse  → Shape of object  
+Specular → Shine of object  
+
+
+
+✅ One Line (Exam)  
+
+Ambient gives base light, diffuse gives surface brightness based on angle, and specular gives shiny 
+highlights.  
+      
+      `
+    },
+    {
+      id: 32,
+      question: "32. Explain Color Models",
+      answer: "📌 Frequently asked question",
+      codeExample: `
+⭐ What is a Color Model?
+
+Definition:
+A Color Model is a method used to represent colors using numbers.
+
+👉 Simple:
+It tells the computer how to create colors.
+
+🎨 Types of Color Models:
+- RGB ⭐ (MOST IMPORTANT)
+- CMY
+- HSV ⭐
+
+
+==================================================
+1️⃣ RGB Color Model ⭐
+==================================================
+
+Idea:
+RGB uses 3 basic colors:
+- Red (R)
+- Green (G)
+- Blue (B)
+
+👉 These colors combine to form all other colors.
+
+Range:
+Each value = 0 to 255
+
+Examples:
+(255, 0, 0)     → Red
+(0, 255, 0)     → Green
+(0, 0, 255)     → Blue
+(255,255,255)   → White
+(0,0,0)         → Black
+
+Simple Diagram:
+        Red
+         ●
+        / \\
+       /   \\
+      ●-----●
+   Green   Blue
+
+Where Used:
+- TV
+- Mobile
+- Computer Screen
+
+Key Points:
+- Mixing more light = brighter color
+- All combined = White
+
+
+
+==================================================
+2️⃣ CMY Color Model
+==================================================
+
+Idea:
+CMY is used in printing.
+
+Basic Colors:
+- Cyan (C)
+- Magenta (M)
+- Yellow (Y)
+
+Relation with RGB:
+C = 1 − R
+M = 1 − G
+Y = 1 − B
+
+Simple Meaning:
+- Opposite of RGB
+- Used in printers
+
+Examples:
+- Cyan absorbs Red
+- Magenta absorbs Green
+- Yellow absorbs Blue
+
+Simple Diagram Idea:
+RGB (Light)  →  CMY (Ink)
+Opposite color system
+
+
+
+==================================================
+3️⃣ HSV Color Model ⭐
+==================================================
+
+Idea:
+HSV represents color like humans see it.
+
+Components:
+H → Hue (color type)
+S → Saturation (purity)
+V → Value (brightness)
+
+
+--------------------------------------------------
+1. Hue (H)
+--------------------------------------------------
+👉 Type of color
+
+Range:
+0° to 360°
+
+Examples:
+0°   → Red
+120° → Green
+240° → Blue
+
+
+--------------------------------------------------
+2. Saturation (S)
+--------------------------------------------------
+👉 Purity of color
+
+0 → Grey (no color)
+1 → Pure color
+
+
+--------------------------------------------------
+3. Value (V)
+--------------------------------------------------
+👉 Brightness
+
+0 → Black
+1 → Bright color
+
+Simple Diagram:
+        (Top = Bright)
+           ●
+          / \\
+         /   \\
+        /     \\
+       ●-------●
+   (Color circle base)
+
+🎯 Real-Life Understanding:
+Hue        → Which color (Red/Blue)
+Saturation → Pure or dull
+Value      → Bright or dark
+
+
+
+
+📊 SUMMARY TABLE
+
+| Model | Components             | Used in       |
+| ----- | ---------------------- | ------------- |
+| RGB   | Red, Green, Blue       | Screens       |
+| CMY   | Cyan, Magenta, Yellow  | Printing      |
+| HSV   | Hue, Saturation, Value | Image editing |
+
+
+
+==================================================
+✅ ONE-LINE EXAM ANSWER
+==================================================
+
+Color models represent colors in computer graphics such as RGB for displays, CMY for 
+printing, and HSV for intuitive color selection.
+      
+      `
+    },
+    {
+      id: 33,
+      question: "33. Explain 3D Transformations",
+      answer: "📌 Important long answer",
+      codeExample: `
+⭐ What are 3D Transformations?
+
+Definition:
+3D Transformation is used to change position, size, or orientation of objects in 3D space.
+
+👉 Coordinates used:
+(x, y, z)
+
+Example:
+Cube, Sphere, etc.
+
+
+==================================================
+⭐ Types of 3D Transformations
+==================================================
+1. Translation
+2. Scaling
+3. Rotation ⭐
+4. Composite Transformation ⭐
+
+
+==================================================
+1️⃣ Translation (Move Object)
+==================================================
+
+Idea:
+Move object in x, y, z directions.
+
+Formula:
+x' = x + tx
+y' = y + ty
+z' = z + tz
+
+Matrix:
+| 1  0  0  tx |
+| 0  1  0  ty |
+| 0  0  1  tz |
+| 0  0  0  1  |
+
+Simple Diagram:
+Before → (x, y, z)
+          ↓ move
+After  → (x+tx, y+ty, z+tz)
+
+Example:
+P(1,2,3)
+tx=2, ty=1, tz=3
+
+New Point:
+(3,3,6)
+
+
+==================================================
+2️⃣ Scaling (Change Size)
+==================================================
+
+Idea:
+Increase or decrease size.
+
+Formula:
+x' = x × sx
+y' = y × sy
+z' = z × sz
+
+Matrix:
+| sx  0   0   0 |
+| 0   sy  0   0 |
+| 0   0   sz  0 |
+| 0   0   0   1 |
+
+Simple Diagram:
+Small Object → Enlarged Object
+
+Example:
+(1,2,3)
+sx=2, sy=2, sz=2
+
+→ (2,4,6)
+
+
+==================================================
+3️⃣ Rotation ⭐ (VERY IMPORTANT)
+==================================================
+
+Idea:
+Rotate object around X, Y, Z axis.
+
+----------------------------------
+Rotation about X-axis
+----------------------------------
+| 1    0        0     0 |
+| 0  cosθ   -sinθ    0 |
+| 0  sinθ    cosθ    0 |
+| 0    0        0     1 |
+
+Effect:
+👉 Up-down rotation
+
+----------------------------------
+Rotation about Y-axis
+----------------------------------
+| cosθ   0   sinθ   0 |
+| 0      1     0    0 |
+| -sinθ  0   cosθ   0 |
+| 0      0     0    1 |
+
+Effect:
+👉 Left-right rotation
+
+----------------------------------
+Rotation about Z-axis
+----------------------------------
+| cosθ  -sinθ  0  0 |
+| sinθ   cosθ  0  0 |
+| 0        0   1  0 |
+| 0        0   0  1 |
+
+Effect:
+👉 Like 2D rotation
+
+Simple Diagram Idea:
+
+Z-axis:
+   ↻ (like circle rotation)
+
+X-axis:
+   ↑↓ tilt
+
+Y-axis:
+   ←→ turn
+
+
+==================================================
+4️⃣ Composite Transformation ⭐
+==================================================
+
+Idea:
+Apply multiple transformations together.
+
+Example Order:
+Scale → Rotate → Translate
+
+Formula:
+Final Matrix = T × R × S
+
+(T = Translation, R = Rotation, S = Scaling)
+
+⚠ Important:
+Order matters ❗
+
+Rotate → Translate ≠ Translate → Rotate
+
+Simple Diagram:
+S → R → T
+↓
+Final Result
+
+
+==================================================
+📊 SUMMARY TABLE
+==================================================
+
+Transformation → Purpose
+Translation    → Move object
+Scaling        → Change size
+Rotation       → Rotate object
+Composite      → Combine operations
+
+
+==================================================
+✅ ONE-LINE EXAM ANSWER
+==================================================
+
+3D transformations are used to modify objects in 3D space using translation, scaling, rotation, and 
+composite transformations.
+
+
+
+
+
+
+
+⭐ 3D / Graphics QUICK TRICKS (EXAM REVISION)
+
+==================================================
+1️⃣ TRANSLATION TRICK
+==================================================
+
+Formula:
+x' = x + tx
+y' = y + ty
+z' = z + tz
+
+✅ Trick:
+👉 Just ADD values
+
+Example:
+(2,3,4) + (1,2,3) = (3,5,7)
+
+✔ Matrix NOT needed (unless asked)
+
+
+==================================================
+2️⃣ SCALING TRICK
+==================================================
+
+Formula:
+x' = x × sx
+y' = y × sy
+z' = z × sz
+
+✅ Trick:
+👉 Just MULTIPLY values
+
+Example:
+(2,3,4) × (2,2,2) = (4,6,8)
+
+
+==================================================
+3️⃣ ROTATION TRICK ⭐ (MOST IMPORTANT)
+==================================================
+
+🔥 MUST REMEMBER VALUES:
+
+Angle   cosθ   sinθ
+0°      1      0
+90°     0      1
+180°   -1      0
+270°    0     -1
+
+----------------------------------
+🔹 Z-axis Rotation (MOST USED)
+----------------------------------
+
+90°  → (x, y) → (-y, x)
+180° → (x, y) → (-x, -y)
+270° → (x, y) → (y, -x)
+
+Example:
+(2,3) → (-3,2)
+
+----------------------------------
+🔹 X-axis Rotation
+----------------------------------
+
+👉 Only y and z change
+
+90° → (x, y, z) → (x, -z, y)
+
+----------------------------------
+🔹 Y-axis Rotation
+----------------------------------
+
+👉 Only x and z change
+
+90° → (x, y, z) → (z, y, -x)
+
+
+==================================================
+4️⃣ REFLECTION TRICK
+==================================================
+
+X-axis   → (x , -y)
+Y-axis   → (-x , y)
+Origin   → (-x , -y)
+
+
+==================================================
+5️⃣ SHEARING TRICK
+==================================================
+
+X-direction:
+x' = x + shx × y
+
+Y-direction:
+y' = y + shy × x
+
+
+==================================================
+6️⃣ WINDOW → VIEWPORT TRICK ⭐
+==================================================
+
+Formula:
+xv = xvmin + (xw − xwmin) × Sx
+yv = yvmin + (yw − ywmin) × Sy
+
+Steps:
+1. Find Sx, Sy
+2. Substitute values
+3. Solve step-by-step
+
+
+==================================================
+7️⃣ COHEN–SUTHERLAND TRICK
+==================================================
+
+0000 → INSIDE ✔
+AND ≠ 0 → REJECT ❌
+Else → CLIP ✂
+
+
+==================================================
+8️⃣ POLYGON CLIPPING TRICK
+==================================================
+
+IN → IN   → Keep point
+IN → OUT  → Intersection
+OUT → IN  → Intersection + Point
+OUT → OUT → Nothing
+
+
+==================================================
+9️⃣ ILLUMINATION TRICK
+==================================================
+
+Ambient  → Whole object visible
+Diffuse  → Light side bright
+Specular → Shiny spot
+
+
+==================================================
+🔟 COLOR MODEL TRICK
+==================================================
+
+RGB → Screen
+CMY → Printer
+HSV → Human understanding
+
+
+==================================================
+🔥 FINAL GOLDEN RULE
+==================================================
+
+ADD       → Translation
+MULTIPLY  → Scaling
+ROTATE    → Use shortcut values
+
+
+
+
+
+
+⭐ What is (2, 3, 4)?
+
+Definition:
+(2, 3, 4) is a point in 3D space.
+
+Format:
+(x, y, z)
+
+So:
+x = 2
+y = 3
+z = 4
+
+👉 It represents a position in 3D space.
+
+
+==================================================
+🎯 WHERE USED IN EXAM
+==================================================
+
+👉 Question will GIVE this point.
+
+Example:
+Translate point P(2,3,4) by (1,2,3)
+
+Here:
+(2,3,4) → Given point
+(1,2,3) → Transformation values
+
+
+==================================================
+⭐ HOW TO USE IT
+==================================================
+
+----------------------------------
+1️⃣ TRANSLATION
+----------------------------------
+
+Given:
+P(2,3,4)
+tx=1, ty=2, tz=3
+
+Formula:
+x' = x + tx
+y' = y + ty
+z' = z + tz
+
+Solution:
+x' = 2 + 1 = 3
+y' = 3 + 2 = 5
+z' = 4 + 3 = 7
+
+👉 New Point:
+(3,5,7)
+
+
+----------------------------------
+2️⃣ SCALING
+----------------------------------
+
+Given:
+P(2,3,4)
+sx=2, sy=2, sz=2
+
+Formula:
+x' = x × sx
+y' = y × sy
+z' = z × sz
+
+Solution:
+x' = 2×2 = 4
+y' = 3×2 = 6
+z' = 4×2 = 8
+
+👉 New Point:
+(4,6,8)
+
+
+----------------------------------
+3️⃣ ROTATION (IDEA)
+----------------------------------
+
+Given:
+P(2,3,4)
+
+👉 After rotation:
+- Values change position
+- Signs may change
+- Depends on axis (X, Y, Z)
+
+
+==================================================
+⭐ REAL LIFE MEANING
+==================================================
+
+(2,3,4) means:
+
+2 steps → X direction
+3 steps → Y direction
+4 steps → Z direction
+
+Simple Visualization:
+
+       z
+       ↑
+       |
+       |        • (2,3,4)
+       |
+       |
+       +----------→ x
+      /
+     /
+    ↓
+    y
+
+
+==================================================
+⭐ IMPORTANT UNDERSTANDING
+==================================================
+
+👉 Values are NOT random
+👉 Always given in question
+👉 You only APPLY formula
+
+
+==================================================
+📊 QUICK SUMMARY
+==================================================
+
+Value        → Meaning
+(2,3,4)      → Point position
+(tx,ty,tz)   → Movement (Translation)
+(sx,sy,sz)   → Size change (Scaling)
+
+
+==================================================
+🔥 FINAL CLARITY
+==================================================
+
+Given:
+Point → (2,3,4)
+
+Apply:
+Transformation → Formula
+
+Result:
+New Point → Final Answer
+
+      `
+    },
+    {
+      id: 34,
+      question: "34. Explain Projection in Computer Graphics",
+      answer: "📌 Very important concept",
+      codeExample: `
+⭐ What is Projection?
+
+Definition:
+Projection is the process of converting a 3D object into a 2D view (screen).
+
+👉 Simple Meaning:
+3D → 2D conversion
+
+👉 Used to display 3D objects on flat screens
+
+
+==================================================
+🎯 REAL-LIFE IDEA
+==================================================
+
+- Real world = 3D
+- Screen / Photo = 2D
+
+👉 Conversion = Projection
+
+Example:
+Mobile Camera 📱
+3D scene → 2D image
+
+
+==================================================
+⭐ TYPES OF PROJECTION
+==================================================
+
+1. Parallel Projection
+2. Perspective Projection ⭐
+
+
+==================================================
+1️⃣ PARALLEL PROJECTION
+==================================================
+
+Idea:
+All projection lines are parallel.
+
+Diagram:
+|||||||||||||
+|||||||||||||
+|||||||||||||
+
+Object:
+   |----|
+  /    /|
+ |----| |
+ |    | /
+ |----|
+
+👉 Lines do NOT meet
+
+Key Features:
+- No depth effect
+- Same size (near = far)
+- Looks flat
+
+Example:
+Near object = same size
+Far object  = same size
+
+Used In:
+- Engineering drawings
+
+Types (optional):
+- Orthographic
+- Oblique
+
+
+==================================================
+2️⃣ PERSPECTIVE PROJECTION ⭐
+==================================================
+
+Idea:
+Projection lines meet at one point (eye/camera).
+
+Diagram:
+\\   |   /
+ \\  |  /
+  \\ | /
+   \\|/
+
+👉 Lines meet at a point
+
+Object Example:
+     /\\
+    /  \\
+   /____\\
+    \\  /
+     \\/
+
+Key Features:
+- Realistic view
+- Near objects → BIG
+- Far objects → SMALL
+
+🎯 Real-Life Example:
+
+Railway Track:
+
+||        ||
+||      ||
+||    ||
+||  ||
+||||
+
+👉 Lines appear to meet
+👉 This is perspective effect
+
+
+==================================================
+📊 DIFFERENCE TABLE
+==================================================
+
+Feature      → Parallel        → Perspective
+Lines        → Parallel        → Meet at a point
+Size         → Same            → Smaller with distance
+Realism      → Low             → High
+Use          → Engineering     → Games, Movies
+
+
+==================================================
+🔥 EASY MEMORY TRICK
+==================================================
+
+Parallel   → Same size
+Perspective→ Real life view
+
+
+==================================================
+✅ ONE-LINE EXAM ANSWER
+==================================================
+
+Projection is the method of converting 3D objects into 2D images using parallel and perspective projection techniques.
+      
+
+
+
+
+🎯 First Understand ONE Thing
+
+👉 Your screen is flat (2D)
+👉 But objects (cube, ball) are 3D
+
+So computer must convert 3D → 2D
+
+👉 That process = Projection
+
+
+🔥 Real Life Example (Very Easy)
+
+Example: Your Mobile Camera 📱
+Real world = 3D
+Photo = 2D
+
+👉 That conversion = Projection
+
+
+⭐ Two Types (Very Easy)
+
+1️⃣ Parallel Projection
+
+Idea
+
+Imagine sunlight rays ☀️
+
+||||||||||
+||||||||||
+||||||||||
+
+👉 All rays are parallel
+
+What happens?
+
+👉 Objects look SAME SIZE
+👉 No depth
+
+Example
+
+Near object = same size
+Far object  = same size
+
+👉 Looks flat (not realistic)
+
+
+2️⃣ Perspective Projection ⭐
+
+Idea
+
+Imagine your eyes 👀 or camera
+
+\\   |   /
+ \\  |  /
+  \\ | /
+   \\|/
+
+👉 All lines meet at one point
+
+What happens?
+
+👉 Near object = BIG
+👉 Far object = SMALL
+
+
+🎯 Real Example (VERY IMPORTANT)
+
+Railway track:
+
+||        ||
+||      ||
+||    ||
+||  ||
+||||
+
+👉 Looks like lines meet
+👉 This is Perspective Projection
+      
+      `
+    },
+    {
+      id: 35,
+      question: "35. Explain Hidden Surface Removal Techniques",
+      answer: "📌 High scoring question",
+      codeExample: `
+⭐ Hidden Surface Removal
+
+🎯 Definition
+
+Hidden Surface Removal is the process of removing parts of objects that are NOT visible to the viewer.
+
+👉 Simple meaning:
+Show only FRONT visible parts
+Hide BACK parts
+
+
+🎯 Real Life Example
+
+Think of a cube:
+
+   ______
+  /     /|
+ /_____/ |
+ |     | |
+ |     | /
+ |_____|/
+
+👉 You cannot see the back side
+👉 Only visible faces are shown
+
+
+⭐ Techniques (Important)
+
+1️⃣ Back Face Removal ⭐
+
+👉 Idea:
+Remove faces that are facing AWAY from the viewer
+
+✔ Front face → Visible
+❌ Back face → Hidden
+
+👉 Rule:
+If face is facing viewer → DRAW
+If face is away → REMOVE
+
+✔ Advantage:
+Fast
+Simple
+
+❌ Disadvantage:
+Works only for CLOSED objects
+
+
+2️⃣ Depth Buffer (Z-buffer) ⭐
+
+👉 Idea:
+Store depth (Z value) for each pixel
+
+👉 Rule:
+Smaller Z → Near → SHOW
+Larger Z → Far → HIDE
+
+Example:
+Object A → z = 2 (near)
+Object B → z = 5 (far)
+
+👉 Show A, hide B
+
+Steps:
+1. Initialize Z-buffer
+2. Compare depth of each pixel
+3. Keep nearest pixel
+
+✔ Advantage:
+Accurate
+Works for all objects
+
+❌ Disadvantage:
+Uses more memory
+
+
+3️⃣ Scan Line Method
+
+👉 Idea:
+Process image LINE BY LINE
+
+Steps:
+1. Take one horizontal line
+2. Find visible surfaces
+3. Draw visible parts
+4. Move to next line
+
+Example:
+-------- Scan line --------
+Check which surface is in front
+Draw that part
+
+✔ Advantage:
+Efficient for polygons
+
+❌ Disadvantage:
+Complex to implement
+
+
+⭐ Summary (Easy)
+
+Back Face → remove back surfaces
+Z-buffer  → check depth
+Scan Line → line by line
+
+
+🎯 Memory Trick
+
+Back Face → Back remove
+Z-buffer  → Depth check
+Scan Line → Row by row
+
+
+✅ One Line (Exam)
+
+Hidden Surface Removal shows only visible parts of objects using 
+Back Face Removal, Z-buffer, and Scan Line methods.
+      `
+    },
+    {
+      id: 36,
+      question: "36. Explain Back Face Detection Algorithm",
+      answer: "📌 Often asked",
+      codeExample: `
+⭐ Back Face Detection Algorithm
+
+🎯 Definition
+
+Back Face Detection is used to remove surfaces (faces) that are facing AWAY from the viewer.
+
+👉 Simple meaning:
+Do NOT draw back side of object
+
+
+🎯 Real Life Idea
+
+Think of a box:
+
+   ______
+  /     /|
+ /_____/ |
+ |     | |
+ |     | /
+ |_____|/
+
+👉 Only front faces are visible
+👉 Back faces are hidden
+
+
+⭐ Key Concept
+
+👉 Each surface has a NORMAL VECTOR
+→ It tells direction of the surface
+
+👉 Compare:
+Surface Direction (Normal)
+          vs
+Viewer Direction
+
+
+⭐ Condition (VERY IMPORTANT)
+
+✔ Case 1: Visible Surface
+
+Dot Product < 0
+👉 Surface facing viewer
+👉 DRAW it
+
+❌ Case 2: Hidden Surface
+
+Dot Product > 0
+👉 Surface facing away
+👉 REMOVE it
+
+
+⭐ Easy Rule (No Formula Trick)
+
+👉 If face is towards you → DRAW ✔
+👉 If face is away → REMOVE ❌
+
+
+⭐ Example
+
+Viewer → 👀
+
+   ______
+  /     /|
+ /_____/ |
+ |     | |
+ |     | /
+ |_____|/
+
+👉 Back faces are NOT drawn
+
+
+⭐ Algorithm (Write in Exam)
+
+1. Consider each surface of object
+
+2. Find normal vector of surface
+
+3. Compare with viewer direction
+
+4. If surface faces viewer
+   → Display it
+
+5. Else
+   → Remove it
+
+6. Repeat for all surfaces
+
+
+⭐ Advantages
+
+✔ Fast
+✔ Easy to implement
+
+
+⭐ Disadvantages
+
+❌ Works only for closed objects
+❌ Cannot handle overlapping surfaces properly
+
+
+⭐ Memory Trick
+
+Front face → DRAW ✔
+Back face  → REMOVE ❌
+
+
+✅ One Line (Exam)
+
+Back Face Detection removes surfaces facing away from the viewer using normal vector direction.
+      
+
+
+
+
+
+🧠 2–3 MARK (JUST READ)
+RGB → Red, Green, Blue
+HSV → Hue, Saturation, Value
+Perspective → realistic view
+Z-buffer → depth comparison
+Back-face → remove invisible surfaces
+      `
+    },
+    {
+      id: 1,
+      question: "1. ",
+      answer: "",
+      codeExample: ``
+    },
+    {
+      id: 1,
+      question: "1. ",
+      answer: "",
+      codeExample: ``
+    },
+    {
       id: 1,
       question: "1. ",
       answer: "",
